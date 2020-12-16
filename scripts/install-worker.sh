@@ -215,6 +215,8 @@ sudo mv $TEMPLATE_DIR/kubelet.service /etc/systemd/system/kubelet.service
 sudo chown root:root /etc/systemd/system/kubelet.service
 sudo mv $TEMPLATE_DIR/kubelet-config.json /etc/kubernetes/kubelet/kubelet-config.json
 sudo chown root:root /etc/kubernetes/kubelet/kubelet-config.json
+sudo mv $TEMPLATE_DIR/selinux-config /etc/selinux/config
+sudo chown root:root /etc/selinux/config
 
 
 sudo systemctl daemon-reload
@@ -285,6 +287,6 @@ if [[ "$CLEANUP_IMAGE" == "true" ]]; then
         /var/log/cloud-init.log \
         /var/log/secure \
         /var/log/wtmp
-done
+fi
 
 sudo touch /etc/machine-id
